@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imam Safii | Dev IDE Portfolio</title>
+    <style>
+        :root {
+            --ide-bg: #1e1e1e;
+            --ide-text: #d4d4d4;
+            --keyword: #569cd6;
+            --string: #ce9178;
+            --comment: #6a9955;
+            --function: #dcdcaa;
+            --number: #b5cea8;
+        }
+
+        body {
+            margin: 0;
+            background: var(--ide-bg);
+            color: var(--ide-text);
+            font-family: 'Fira Code', 'Consolas', monospace;
+            line-height: 1.6;
+        }
+
+        .ide-container {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            min-height: 100vh;
+        }
+
+        /* IDE Sidebar */
+        .sidebar {
+            background: #252526;
+            padding: 20px;
+            border-right: 1px solid #333;
+        }
+
+        .file-tree {
+            list-style: none;
+            padding: 0;
+        }
+
+        .file-tree li {
+            padding: 5px 0;
+            cursor: pointer;
+        }
+
+        .file-tree li:hover {
+            background: #2a2d2e;
+        }
+
+        /* Main Editor Area */
+        .editor {
+            padding: 20px;
+            position: relative;
+        }
+
+        .line-numbers {
+            position: absolute;
+            left: 0;
+            top: 0;
+            padding: 20px;
+            color: #858585;
+            text-align: right;
+            width: 40px;
+        }
+
+        .code-content {
+            margin-left: 50px;
+        }
+
+        /* Syntax Highlighting */
+        .keyword { color: var(--keyword); }
+        .string { color: var(--string); }
+        .comment { color: var(--comment); }
+        .function { color: var(--function); }
+        .number { color: var(--number); }
+
+        /* Project Cards */
+        .project-card {
+            background: #2d2d2d;
+            padding: 15px;
+            margin: 10px 0;
+            border-left: 3px solid var(--keyword);
+        }
+
+        .project-card:hover {
+            background: #3c3c3c;
+        }
+
+        /* Terminal Effect */
+        .terminal {
+            background: #000;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+
+        .prompt {
+            color: #4ec9b0;
+        }
+
+        /* IDE Top Bar */
+        .ide-header {
+            background: #3c3c3c;
+            padding: 10px;
+            display: flex;
+            gap: 20px;
+        }
+
+        .tab {
+            padding: 5px 15px;
+            background: #2d2d2d;
+            border-radius: 3px 3px 0 0;
+        }
+
+        /* Animations */
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+
+        .cursor {
+            animation: blink 1s step-end infinite;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .ide-container {
+                grid-template-columns: 1fr;
+            }
+            .sidebar {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="ide-container">
+        <div class="sidebar">
+            <div class="ide-header">
+                <div class="tab active">PROJECT</div>
+                <div class="tab">GIT</div>
+            </div>
+            <ul class="file-tree">
+                <li>📁 portfolio</li>
+                <li>📄 about_me.java</li>
+                <li>📄 skills.xml</li>
+                <li>📄 projects.py</li>
+                <li>📄 contact.json</li>
+                <li>📁 achievements</li>
+                <li>📁 certifications</li>
+            </ul>
+        </div>
+
+        <div class="editor">
+            <div class="line-numbers">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8</div>
+            <div class="code-content">
+                <h1 class="keyword">public class</h1>
+                <span class="function">ImamSafii</span> {<br>
+                
+                <div class="project-card">
+                    <span class="keyword">public void</span> 
+                    <span class="function">showSkills</span>() {<br>
+                    &nbsp;&nbsp;<span class="comment">// Technical Expertise</span><br>
+                    &nbsp;&nbsp;List&lt;String&gt; skills = Arrays.asList(<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"Microservices"</span>,<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"Cloud Architecture (GCP)"</span>,<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"Kubernetes & Docker"</span><br>
+                    &nbsp;&nbsp;);<br>
+                    }
+                </div>
+
+                <div class="project-card">
+                    <span class="keyword">public void</span> 
+                    <span class="function">featuredProjects</span>() {<br>
+                    &nbsp;&nbsp;<span class="comment">// System Optimizations</span><br>
+                    &nbsp;&nbsp;System.out.println(<span class="string">"75% latency reduction"</span>);<br>
+                    &nbsp;&nbsp;System.out.println(<span class="string">"1M+ daily requests handled"</span>);<br>
+                    }
+                </div>
+
+                <div class="terminal">
+                    <span class="prompt">$ imam-safii --contact</span><br>
+                    > 📧: imaamm.dev@gmail.com<br>
+                    > 📱: +62 8224-4303-444<br>
+                    > 🔗: linkedin.com/in/imaammdev<span class="cursor">_</span>
+                </div>
+
+                <div class="project-card">
+                    <span class="keyword">public static void</span> 
+                    <span class="function">main</span>(String[] args) {<br>
+                    &nbsp;&nbsp;new <span class="function">ImamSafii</span>()<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;.showSkills()<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;.featuredProjects();<br>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
