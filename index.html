@@ -3,199 +3,266 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Imam Safii | Dev IDE Portfolio</title>
+    <title>imaamm.dev portofolio</title>
     <style>
-        :root {
-            --ide-bg: #1e1e1e;
-            --ide-text: #d4d4d4;
-            --keyword: #569cd6;
-            --string: #ce9178;
-            --comment: #6a9955;
-            --function: #dcdcaa;
-            --number: #b5cea8;
-        }
+        /* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        body {
-            margin: 0;
-            background: var(--ide-bg);
-            color: var(--ide-text);
-            font-family: 'Fira Code', 'Consolas', monospace;
-            line-height: 1.6;
-        }
+body {
+    font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
+    background: linear-gradient(to bottom, #1e1e2f, #2b2b43); /* Gradient background */
+    color: #d4d4d4; /* Default text color */
+    line-height: 1.6;
+    overflow: hidden; /* Prevent body-level scrolling */
+}
 
-        .ide-container {
-            display: grid;
-            grid-template-columns: 250px 1fr;
-            min-height: 100vh;
-        }
+.intellij {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Full screen height */
+}
 
-        /* IDE Sidebar */
-        .sidebar {
-            background: #252526;
-            padding: 20px;
-            border-right: 1px solid #333;
-        }
+.header {
+    background: linear-gradient(to right, #4e5a65, #3c4b5c); /* Gradient toolbar */
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 
-        .file-tree {
-            list-style: none;
-            padding: 0;
-        }
+.logo {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ffffff; /* White logo text */
+}
 
-        .file-tree li {
-            padding: 5px 0;
-            cursor: pointer;
-        }
+.buttons {
+    display: flex;
+    gap: 10px;
+}
 
-        .file-tree li:hover {
-            background: #2a2d2e;
-        }
+.button {
+    color: #d4d4d4; /* Toolbar button text */
+    cursor: pointer;
+}
 
-        /* Main Editor Area */
-        .editor {
-            padding: 20px;
-            position: relative;
-        }
+.button:hover {
+    color: #ffffff; /* Highlight on hover */
+}
 
-        .line-numbers {
-            position: absolute;
-            left: 0;
-            top: 0;
-            padding: 20px;
-            color: #858585;
-            text-align: right;
-            width: 40px;
-        }
+.main-content {
+    display: flex;
+    flex: 1;
+    overflow: hidden; /* Prevent main content from overflowing */
+}
 
-        .code-content {
-            margin-left: 50px;
-        }
+.sidebar {
+    width: 200px;
+    background: #2a2d3e; /* Vibrant sidebar background */
+    padding: 10px;
+    border-right: 1px solid #4e5a65;
+    overflow-y: auto; /* Enable vertical scrolling for sidebar */
+}
 
-        /* Syntax Highlighting */
-        .keyword { color: var(--keyword); }
-        .string { color: var(--string); }
-        .comment { color: var(--comment); }
-        .function { color: var(--function); }
-        .number { color: var(--number); }
+.sidebar-header {
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
 
-        /* Project Cards */
-        .project-card {
-            background: #2d2d2d;
-            padding: 15px;
-            margin: 10px 0;
-            border-left: 3px solid var(--keyword);
-        }
+.project-tree {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
 
-        .project-card:hover {
-            background: #3c3c3c;
-        }
+.project-tree li {
+    margin: 5px 0;
+}
 
-        /* Terminal Effect */
-        .terminal {
-            background: #000;
-            padding: 20px;
-            border-radius: 5px;
-            margin: 20px 0;
-        }
+.folder {
+    color: #ffcb6b; /* Bright yellow for folders */
+    cursor: pointer;
+}
 
-        .prompt {
-            color: #4ec9b0;
-        }
+.file {
+    color: #82aaff; /* Bright blue for files */
+    cursor: pointer;
+}
 
-        /* IDE Top Bar */
-        .ide-header {
-            background: #3c3c3c;
-            padding: 10px;
-            display: flex;
-            gap: 20px;
-        }
+.editor {
+    flex: 1;
+    display: flex;
+    overflow: hidden; /* Prevent editor from overflowing */
+}
 
-        .tab {
-            padding: 5px 15px;
-            background: #2d2d2d;
-            border-radius: 3px 3px 0 0;
-        }
+.line-numbers {
+    background: #2a2d3e; /* Vibrant line number background */
+    color: #808080; /* Gray for line numbers */
+    padding: 10px;
+    border-right: 1px solid #4e5a65;
+    user-select: none;
+    overflow-y: auto; /* Enable vertical scrolling for line numbers */
+}
 
-        /* Animations */
-        @keyframes blink {
-            50% { opacity: 0; }
-        }
+.line-numbers span {
+    display: block;
+    text-align: right;
+    margin-bottom: 2px;
+}
 
-        .cursor {
-            animation: blink 1s step-end infinite;
-        }
+.code {
+    padding: 10px;
+    flex: 1;
+    overflow-y: auto; /* Enable vertical scrolling for code area */
+    background: #1e1e2f; /* Dark editor background */
+}
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .ide-container {
-                grid-template-columns: 1fr;
-            }
-            .sidebar {
-                display: none;
-            }
-        }
+.line {
+    margin: 0;
+}
+
+.indent {
+    margin-left: 20px;
+}
+
+.double-indent {
+    margin-left: 40px;
+}
+
+.triple-indent {
+    margin-left: 60px;
+}
+
+.keyword {
+    color: #c792ea; /* Purple for keywords */
+}
+
+.class-name {
+    color: #f78c6c; /* Orange for class names */
+}
+
+.type {
+    color: #82aaff; /* Bright blue for types */
+}
+
+.string {
+    color: #c3e88d; /* Green for strings */
+}
+
+.comment {
+    color: #636f88; /* Soft gray for comments */
+}
+
+.status-bar {
+    background: linear-gradient(to right, #3c4b5c, #4e5a65); /* Gradient status bar */
+    padding: 5px 10px;
+    display: flex;
+    gap: 10px;
+    color: #d4d4d4;
+    font-size: 0.9rem;
+}
+
+.status-item {
+    cursor: default;
+}
     </style>
 </head>
 <body>
-    <div class="ide-container">
-        <div class="sidebar">
-            <div class="ide-header">
-                <div class="tab active">PROJECT</div>
-                <div class="tab">GIT</div>
+    <!-- IntelliJ-like Container -->
+    <div class="intellij">
+        <!-- Header (Toolbar) -->
+        <div class="header">
+            <div class="toolbar">
+                <span class="logo">imaammdev playground</span>
             </div>
-            <ul class="file-tree">
-                <li>📁 portfolio</li>
-                <li>📄 about_me.java</li>
-                <li>📄 skills.xml</li>
-                <li>📄 projects.py</li>
-                <li>📄 contact.json</li>
-                <li>📁 achievements</li>
-                <li>📁 certifications</li>
-            </ul>
         </div>
 
-        <div class="editor">
-            <div class="line-numbers">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8</div>
-            <div class="code-content">
-                <h1 class="keyword">public class</h1>
-                <span class="function">ImamSafii</span> {<br>
-                
-                <div class="project-card">
-                    <span class="keyword">public void</span> 
-                    <span class="function">showSkills</span>() {<br>
-                    &nbsp;&nbsp;<span class="comment">// Technical Expertise</span><br>
-                    &nbsp;&nbsp;List&lt;String&gt; skills = Arrays.asList(<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"Microservices"</span>,<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"Cloud Architecture (GCP)"</span>,<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"Kubernetes & Docker"</span><br>
-                    &nbsp;&nbsp;);<br>
-                    }
-                </div>
+        <!-- Main Content Area -->
+        <div class="main-content">
+            <!-- Sidebar (Project Explorer) -->
+            <div class="sidebar">
+                <div class="sidebar-header">Project</div>
+                <ul class="project-tree">
+                    <li><span class="folder">src</span>
+                        <ul>
+                            <li><span class="file">Portfolio.java</span></li>
+                        </ul>
+                    </li>
+                    <li><span class="folder">resources</span></li>
+                    <li><span class="folder">test</span></li>
+                </ul>
+            </div>
 
-                <div class="project-card">
-                    <span class="keyword">public void</span> 
-                    <span class="function">featuredProjects</span>() {<br>
-                    &nbsp;&nbsp;<span class="comment">// System Optimizations</span><br>
-                    &nbsp;&nbsp;System.out.println(<span class="string">"75% latency reduction"</span>);<br>
-                    &nbsp;&nbsp;System.out.println(<span class="string">"1M+ daily requests handled"</span>);<br>
-                    }
-                </div>
+            <!-- Editor Area -->
+            <div class="editor">
+                <div class="line-numbers">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                    <span>11</span>
+                    <span>12</span>
+                    <span>13</span>
+                    <span>14</span>
+                    <span>15</span>
+                    
 
-                <div class="terminal">
-                    <span class="prompt">$ imam-safii --contact</span><br>
-                    > 📧: imaamm.dev@gmail.com<br>
-                    > 📱: +62 8224-4303-444<br>
-                    > 🔗: linkedin.com/in/imaammdev<span class="cursor">_</span>
                 </div>
+                <div class="code">
+                    <p class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="class-name">Portfolio</span> {</p>
+                    <p class="line indent"><span class="comment">// About Me</span></p>
+                    <p class="line indent"><span class="keyword">public</span> <span class="type">String</span> aboutMe() {</p>
+                    <p class="line double-indent"><span class="keyword">return</span> <span class="string">"I am a passionate Java Software Engineer with 9 years of experience in developing scalable and efficient applications."</span>;</p>
+                    <p class="line indent">}</p>
 
-                <div class="project-card">
-                    <span class="keyword">public static void</span> 
-                    <span class="function">main</span>(String[] args) {<br>
-                    &nbsp;&nbsp;new <span class="function">ImamSafii</span>()<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;.showSkills()<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;.featuredProjects();<br>
-                    }
+                    <p class="line indent"><span class="comment">// Skills</span></p>
+                    <p class="line indent"><span class="keyword">public</span> <span class="type">List</span><<span class="type">String</span>> skills() {</p>
+                    <p class="line double-indent"><span class="keyword">return</span> Arrays.asList(</p>
+                    <p class="line triple-indent"><span class="string">"Backend Development"</span>,</p>
+                    <p class="line triple-indent"><span class="string">"Database Management"</span>,</p>
+                    <p class="line triple-indent"><span class="string">"Testing & Debugging"</span>,</p>
+                    <p class="line triple-indent"><span class="string">"DevOps Practices"</span></p>
+                    <p class="line double-indent">);</p>
+                    <p class="line indent">}</p>
+                    
+                    <p class="line indent"><span class="comment">// Projects</span></p>
+                    <p class="line indent"><span class="keyword">public</span> <span class="type">List</span><<span class="type">String</span>> projects() {</p>
+                    <p class="line double-indent"><span class="keyword">return</span> Arrays.asList(</p>
+                    <p class="line triple-indent"><span class="string">"E-Commerce Platform"</span>,</p>
+                    <p class="line triple-indent"><span class="string">"Task Management System"</span>,</p>
+                    <p class="line triple-indent"><span class="string">"Data Analytics Tool"</span></p>
+                    <p class="line double-indent">);</p>
+                    <p class="line indent">}</p>
+                    
+                    <p class="line indent"><span class="comment">// Contact</span></p>
+                    <p class="line indent"><span class="keyword">public</span> <span class="type">String</span> contact() {</p>
+                    <p class="line double-indent"><span class="keyword">return</span> <span class="string">
+                        "Email: <a class="string" href='mailto:imaamm.dev@gmail.com' target='_blank'>imaamm.dev@gmail.com</a> | 
+                        GitHub: <a class="string" href='https://github.com/imaammdev' target='_blank'>github.com/imaammdev</a> | 
+                        LinkedIn: <a class="string" href='https://linkedin.com/in/imaammdev' target='_blank'>linkedin.com/in/imaammdev</a>"
+                    </span>;</p>
+                    <p class="line indent">}</p>
                 </div>
             </div>
+        </div>
+
+        <!-- Status Bar -->
+        <div class="status-bar">
+            <div class="status-item">UTF-8</div>
+            <div class="status-item">LF</div>
+            <div class="status-item">Java 24</div>
+            <div class="status-item">Portfolio.java</div>
         </div>
     </div>
 </body>
