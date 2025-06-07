@@ -1,256 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>imaamm.dev portofolio</title>
-    <style>
-        /* General Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
-    background: linear-gradient(to bottom, #1e1e2f, #2b2b43); /* Gradient background */
-    color: #d4d4d4; /* Default text color */
-    line-height: 1.6;
-    overflow: hidden; /* Prevent body-level scrolling */
-}
-
-.intellij {
-    display: flex;
-    flex-direction: column;
-    height: 100vh; /* Full screen height */
-}
-
-.header {
-    background: linear-gradient(to right, #4e5a65, #3c4b5c); /* Gradient toolbar */
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.logo {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #ffffff; /* White logo text */
-}
-
-.buttons {
-    display: flex;
-    gap: 10px;
-}
-
-.button {
-    color: #d4d4d4; /* Toolbar button text */
-    cursor: pointer;
-}
-
-.button:hover {
-    color: #ffffff; /* Highlight on hover */
-}
-
-.main-content {
-    display: flex;
-    flex: 1;
-    overflow: hidden; /* Prevent main content from overflowing */
-}
-
-.sidebar {
-    width: 200px;
-    background: #2a2d3e; /* Vibrant sidebar background */
-    padding: 10px;
-    border-right: 1px solid #4e5a65;
-    overflow-y: auto; /* Enable vertical scrolling for sidebar */
-}
-
-.sidebar-header {
-    font-weight: bold;
-    margin-bottom: 10px;
-    color: #ffffff;
-}
-
-.project-tree {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.project-tree li {
-    margin: 5px 0;
-}
-
-.folder {
-    color: #ffcb6b; /* Bright yellow for folders */
-    cursor: pointer;
-}
-
-.file {
-    color: #82aaff; /* Bright blue for files */
-    cursor: pointer;
-}
-
-.editor {
-    flex: 1;
-    display: flex;
-    overflow: hidden; /* Prevent editor from overflowing */
-}
-
-.line-numbers {
-    background: #2a2d3e; /* Vibrant line number background */
-    color: #808080; /* Gray for line numbers */
-    padding: 10px;
-    border-right: 1px solid #4e5a65;
-    user-select: none;
-    overflow-y: auto; /* Enable vertical scrolling for line numbers */
-}
-
-.line-numbers span {
-    display: block;
-    text-align: right;
-    margin-bottom: 2px;
-}
-
-.code {
-    padding: 10px;
-    flex: 1;
-    overflow-y: auto; /* Enable vertical scrolling for code area */
-    background: #1e1e2f; /* Dark editor background */
-}
-
-.line {
-    margin: 0;
-}
-
-.indent {
-    margin-left: 20px;
-}
-
-.double-indent {
-    margin-left: 40px;
-}
-
-.triple-indent {
-    margin-left: 60px;
-}
-
-.keyword {
-    color: #c792ea; /* Purple for keywords */
-}
-
-.class-name {
-    color: #f78c6c; /* Orange for class names */
-}
-
-.type {
-    color: #82aaff; /* Bright blue for types */
-}
-
-.string {
-    color: #c3e88d; /* Green for strings */
-}
-
-.comment {
-    color: #636f88; /* Soft gray for comments */
-}
-
-.status-bar {
-    background: linear-gradient(to right, #3c4b5c, #4e5a65); /* Gradient status bar */
-    padding: 5px 10px;
-    display: flex;
-    gap: 10px;
-    color: #d4d4d4;
-    font-size: 0.9rem;
-}
-
-.status-item {
-    cursor: default;
-}
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Imam Safii – Senior Engineering Manager and System Architect. Building scalable systems and strong engineering teams.">
+  <title>Imam Safii</title>
+  <link rel="icon" href="https://fav.farm/⚙️" />
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
 </head>
-<body>
-    <!-- IntelliJ-like Container -->
-    <div class="intellij">
-        <!-- Header (Toolbar) -->
-        <div class="header">
-            <div class="toolbar">
-                <span class="logo">imaammdev playground</span>
-            </div>
+<body class="min-h-screen flex flex-col bg-gradient-to-br from-gray-100 to-white text-gray-800">
+  <div class="flex-grow flex flex-col items-center p-8 w-full">
+    <section class="text-center max-w-xl py-16">
+      <h1 class="text-4xl font-bold mb-4">Imam Safii</h1>
+      <p class="text-lg text-gray-700 mb-6">
+        Senior Engineering Manager | System Architect | Team Builder
+      </p>
+      <div class="flex justify-center gap-4 mb-8">
+        <a
+          href="https://github.com/imaammdev"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Visit Imam's GitHub"
+          class="inline-flex items-center px-4 py-2 bg-black text-white rounded hover:bg-gray-800"
+        >
+          <i data-lucide="github" class="mr-2 h-4 w-4"></i> GitHub
+        </a>
+        <a
+          href="https://linkedin.com/in/imaammdev"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Visit Imam's LinkedIn"
+          class="inline-flex items-center px-4 py-2 border border-gray-400 rounded text-gray-700 hover:bg-gray-200"
+        >
+          <i data-lucide="linkedin" class="mr-2 h-4 w-4"></i> LinkedIn
+        </a>
+      </div>
+      <p class="text-gray-600 max-w-md mx-auto">
+        I help teams build scalable systems and deliver impactful solutions. Passionate about clean architecture, performance, and mentoring engineers.
+      </p>
+    </section>
+
+    <section class="max-w-3xl w-full mb-12">
+      <h2 class="text-2xl font-semibold mb-4 text-center">What I Do</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div class="bg-white rounded shadow p-4">
+          <p class="font-medium">System Architecture</p>
+          <p class="text-sm text-gray-600">Designing reliable, scalable backend systems</p>
         </div>
-
-        <!-- Main Content Area -->
-        <div class="main-content">
-
-            <!-- Editor Area -->
-            <div class="editor">
-                <div class="line-numbers">
-                    <span>1</span>
-                    <span>2</span>
-                    <span>3</span>
-                    <span>4</span>
-                    <span>5</span>
-                    <span>6</span>
-                    <span>7</span>
-                    <span>8</span>
-                    <span>9</span>
-                    <span>10</span>
-                    <span>11</span>
-                    <span>12</span>
-                    <span>13</span>
-                    <span>14</span>
-                    <span>15</span>
-                    
-
-                </div>
-                <div class="code">
-                    <p class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="class-name">Portfolio</span> {</p>
-                    <p class="line indent"><span class="comment">// About Me</span></p>
-                    <p class="line indent"><span class="keyword">public</span> <span class="type">String</span> aboutMe() {</p>
-                    <p class="line double-indent"><span class="keyword">return</span> <span class="string">"I am a passionate Java Software Engineer with 9 years of experience in developing scalable and efficient applications."</span>;</p>
-                    <p class="line indent">}</p>
-
-                    <p class="line indent"><span class="comment">// Skills</span></p>
-                    <p class="line indent"><span class="keyword">public</span> <span class="type">List</span><<span class="type">String</span>> skills() {</p>
-                    <p class="line double-indent"><span class="keyword">return</span> Arrays.asList(</p>
-                    <p class="line triple-indent"><span class="string">"Backend Development"</span>,</p>
-                    <p class="line triple-indent"><span class="string">"Database Management"</span>,</p>
-                    <p class="line triple-indent"><span class="string">"Testing & Debugging"</span>,</p>
-                    <p class="line triple-indent"><span class="string">"DevOps Practices"</span></p>
-                    <p class="line double-indent">);</p>
-                    <p class="line indent">}</p>
-                    
-                    <p class="line indent"><span class="comment">// Projects</span></p>
-                    <p class="line indent"><span class="keyword">public</span> <span class="type">List</span><<span class="type">String</span>> projects() {</p>
-                    <p class="line double-indent"><span class="keyword">return</span> Arrays.asList(</p>
-                    <p class="line triple-indent"><span class="string">"E-Commerce Platform"</span>,</p>
-                    <p class="line triple-indent"><span class="string">"Task Management System"</span>,</p>
-                    <p class="line triple-indent"><span class="string">"Data Analytics Tool"</span></p>
-                    <p class="line double-indent">);</p>
-                    <p class="line indent">}</p>
-                    
-                    <p class="line indent"><span class="comment">// Contact</span></p>
-                    <p class="line indent"><span class="keyword">public</span> <span class="type">String</span> contact() {</p>
-                    <p class="line double-indent"><span class="keyword">return</span> <span class="string">
-                        "Email: <a class="string" href='mailto:imaamm.dev@gmail.com' target='_blank'>imaamm.dev@gmail.com</a> | 
-                        GitHub: <a class="string" href='https://github.com/imaammdev' target='_blank'>github.com/imaammdev</a> | 
-                        LinkedIn: <a class="string" href='https://linkedin.com/in/imaammdev' target='_blank'>linkedin.com/in/imaammdev</a>"
-                    </span>;</p>
-                    <p class="line indent">}</p>
-                </div>
-            </div>
+        <div class="bg-white rounded shadow p-4">
+          <p class="font-medium">Team Leadership</p>
+          <p class="text-sm text-gray-600">Building high performing, self sufficient squads</p>
         </div>
-
-        <!-- Status Bar -->
-        <div class="status-bar">
-            <div class="status-item">UTF-8</div>
-            <div class="status-item">LF</div>
-            <div class="status-item">Java 24</div>
-            <div class="status-item">Portfolio.java</div>
+        <div class="bg-white rounded shadow p-4">
+          <p class="font-medium">Tech Strategy</p>
+          <p class="text-sm text-gray-600">Aligning technology with business goals</p>
         </div>
-    </div>
+      </div>
+    </section>
+  </div>
+
+  <footer class="text-sm text-gray-500 text-center py-6">
+    &copy; <span id="year"></span> Imam Safii. All rights reserved.
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+    window.addEventListener('load', () => {
+      lucide.createIcons();
+    });
+  </script>
 </body>
 </html>
